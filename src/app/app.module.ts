@@ -6,7 +6,7 @@ import {
 } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -22,6 +22,8 @@ import { SpinnerComponent } from './shared/spinner.component';
 
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { ApiService } from './services/api.service'; 
+
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -36,6 +38,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     SpinnerComponent,
     FullComponent,
     NavigationComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -48,6 +51,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     RouterModule.forRoot(Approutes, { useHash: false, relativeLinkResolution: 'legacy' })
   ],
   providers: [
+    HttpClient,
+    ApiService,
     {
       provide: LocationStrategy,
       useClass: PathLocationStrategy

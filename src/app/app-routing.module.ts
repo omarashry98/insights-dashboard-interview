@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { MychartComponent } from "./mychart/mychart.component";
 import { FullComponent } from './layouts/full/full.component';
 
 export const Approutes: Routes = [
@@ -19,6 +19,7 @@ export const Approutes: Routes = [
       }
     ]
   },
+  {path: "chart", component: MychartComponent},
   {
     path: '**',
     redirectTo: '/starter'
