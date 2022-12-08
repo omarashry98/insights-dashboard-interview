@@ -38,10 +38,9 @@ export class MychartComponent implements OnInit {
     });
 
     if(this.chartdata.length){
-      // const labels = [];
       const colors = [];
       for(let i=0; i<this.chartdata.length; i++){
-        //console.log(this.chartdata[i]);
+        
         const month = monthNames[Number(this.chartdata[i].invoice_month)-1];
         const year = this.chartdata[i].invoice_year;
         this.Years.add(year);
@@ -50,13 +49,11 @@ export class MychartComponent implements OnInit {
         this.Ydata.push(name);
         this.Xdata.push(this.chartdata[i].amount);
         colors.push(this.color[this.Years.size-1].hex);
-        //labels.push(Array.from(this.Years));
         
       }
-      let labels = [...this.Years];
-      console.log(labels);
       
-      this.RenderChart(this.Ydata, this.Xdata, colors, labels);
+      
+      this.RenderChart(this.Ydata, this.Xdata, colors);
     }
   }
   color = [
@@ -130,7 +127,7 @@ export class MychartComponent implements OnInit {
     },
   ] as const;
   
-  RenderChart(Y: string[], X: string[], colors: string[], labels: string[]){
+  RenderChart(Y: string[], X: string[], colors: string[]){
     
     new Chart("barchart", {
       type: 'bar',
