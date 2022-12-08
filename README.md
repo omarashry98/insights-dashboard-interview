@@ -1,10 +1,10 @@
 # Instructions and notes by Omar Ashry
-first run server, command: ts-node-esm app.ts
-second run frontend - command: ng serve
+* first run server, command: ts-node-esm app.ts
+* second run frontend - command: ng serve
 
 How run unit test:
-first change the "type" in package.json from "module" to "commonjs"
-save then run the command: ng test
+* first change the "type" in package.json from "module" to "commonjs"
+* save then run the command: ng test
 
 # Enigneer take home project 
 
